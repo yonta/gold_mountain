@@ -17,7 +17,8 @@ struct point {
 std::vector<std::string > inputGoldMountain()
 {
   std::vector<std::string> world(10);
-  for (int i = 0; i < world_y; ++i) std::getline(std::cin, world[i]);
+  for (int i = 0; i < world_y; ++i)
+    std::getline(std::cin, world[static_cast<size_t>(i)]);
   return world;
 }
 
@@ -44,7 +45,7 @@ int calcGold(int x, int y, const std::vector<std::string> &world)
   int gold = 0;
   for (int i = y; i < y + y_length; ++i)
     for (int j = x; j < x + x_length; ++j)
-      if (world[i][j] == 'G') ++gold;
+      if (world[static_cast<size_t>(i)][static_cast<size_t>(j)] == 'G') ++gold;
   return gold;
 }
 
